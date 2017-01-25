@@ -1,0 +1,1 @@
+{"embeddings": [{"tensorPath": "https://raw.githubusercontent.com/pilipolio/nlp-media-hack/master/data/ap/user_topics.tsv", "tensorName": "User average topics", "tensorShape": [24665, 150], "metadataPath": "https://raw.githubusercontent.com/pilipolio/nlp-media-hack/master/data/ap/user_metadata.tsv"}]}

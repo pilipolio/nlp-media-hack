@@ -1,1 +1,0 @@
-{"embeddings": [{"tensorPath": "https://raw.githubusercontent.com/pilipolio/nlp-media-hack/master/data/vg/article_topics.tsv", "tensorName": "Article topics", "tensorShape": [1570, 150], "metadataPath": "https://raw.githubusercontent.com/pilipolio/nlp-media-hack/master/data/vg/article_metadata.tsv"}]}

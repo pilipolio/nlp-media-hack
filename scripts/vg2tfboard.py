@@ -18,7 +18,8 @@ def projector_config(article_topics):
     return projector_config_dict
 
 all_articles = pd.read_csv('data/vg/metadata_article.txt', sep=';', encoding='utf-8')\
-    .assign(pub_date=lambda df: pd.to_datetime(df.pub_date))
+    .assign(pub_date=lambda df: pd.to_datetime(df.pub_date))\
+    .assign(title = lambda df:df.title.replace({'\n': '|'}, regex=True))
 
 articles = all_articles.query("pub_date >= '2016-12-01'")
 articles.article_id = articles.article_id.astype(int)

@@ -17,7 +17,7 @@ def projector_config(article_topics):
     }
     return projector_config_dict
 
-all_articles = pd.read_csv('data/vg/metadata_article.txt', sep=';')\
+all_articles = pd.read_csv('data/vg/metadata_article.txt', sep=';', encoding='utf-8')\
     .assign(pub_date=lambda df: pd.to_datetime(df.pub_date))
 
 articles = all_articles.query("pub_date >= '2016-12-01'")
@@ -31,7 +31,7 @@ print('loaded {} article_topics'.format(article_topics.shape))
 
 # aligning articles and topics
 article_topics = article_topics[article_topics.index.isin(articles.index)].sort_index()
-articles = articles[articles.index.isin(article_topics.index)]
+articles = articles[articles.index.isin(article_topics.index)].sort_index()
 
 print('{}/{} common article/topics'.format(articles.shape[0], article_topics.shape[0]))
 
@@ -41,4 +41,4 @@ article_topics.to_csv(os.path.join(OUTPUT_DIR, 'article_topics.tsv'), sep='\t', 
 with open(os.path.join(OUTPUT_DIR, 'projector_config_2.json'), 'w') as f:
     json.dump(projector_config(article_topics), f)
 
-articles[['title', 'categorie', 'pub_date']].to_csv(os.path.join(OUTPUT_DIR, 'article_metadata.tsv'), sep='\t')
+articles[['title', 'categorie', 'pub_date']].to_csv(os.path.join(OUTPUT_DIR, 'article_metadata.tsv'), sep='\t', encoding='utf-8')

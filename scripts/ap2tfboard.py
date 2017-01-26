@@ -22,7 +22,8 @@ articles = pd.read_csv('data/ap/articles.csv')\
 
 print('loaded {} articles'.format(articles.shape[0]))
 
-article_topics = pd.read_csv('data/ap/article_topics.csv', sep=';')
+article_topics = pd.read_csv('data/ap/article_topics.csv', sep=',')\
+                   .set_index('id')
 print('loaded {} article_topics'.format(article_topics.shape))
 
 ## dump
